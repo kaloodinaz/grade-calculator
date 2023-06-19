@@ -1,11 +1,16 @@
 body {
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    /* background-color: #222222;
-    color: #ffffff; */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #222222;
+    color: #ffffff;
+}
+
+p {
+    margin: 0;
+    padding: 0;
 }
 
 .main {
-    width: 1000px;
+    width: 800px;
     margin: 0 auto;
     padding: 10px;
 }
@@ -51,24 +56,14 @@ body {
     transition: max-height 0.2s ease-out;
 }
 
+#center_content {
+    display: flex;
+    flex-direction: column;
+}
+
 .row {
-    padding: 4px 0;
     display: flex;
     flex-direction: row;
-}
-
-.row input {
-    font-size: 16px;
-    height: 30px;
-    margin: 0 2px;
-}
-
-.input_name {
-    width: 200px;
-}
-
-.input_grade, .input_weight {
-    width: 60px;
 }
 
 .col {
@@ -76,9 +71,38 @@ body {
     flex-direction: column;
 }
 
+.row input {
+    font-size: 16px;
+    height: 30px;
+    margin: 3px;
+}
+
+#name {
+    width: 200px;
+}
+
+.numInput {
+    width: 60px;
+}
+
 label {
     font-size: 14px;
-    margin: 4px 4px;
+    margin: 4px 2px;
+}
+
+#currentGradeButtons button {
+    font-size: 16px;
+    height: 40px;
+    margin: 4px 2px;
+}
+
+#addRowBtn {
+    background-color: rgb(100, 195, 100);
+    width: 40px;
+}
+
+#desiredGrade {
+    align-items: center;
 }
 
 /* Mobile Screens */

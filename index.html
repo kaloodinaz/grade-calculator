@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -38,60 +39,67 @@
     </div>
 
     <hr>
-    
+
     <div class="main">
 
-        <div id="container">
-            <div class="row">
-                <div class="col">
-                    <label for="name">Name (optional)</label>
-                    <input type="text" id="name" name="textbox[]" placeholder="ex. Assignment 1" class="input_name">
+        <div class="row">
+            <div class="col">
+                <div id="container">
+                    <form class="row" id="row0">
+                        <div class="col">
+                            <label for="name">Name (optional)</label>
+                            <input type="text" id="name" name="textbox[]" placeholder="ex. Assignment 1">
+                        </div>
+                        <div class="col">
+                            <label for="grade">Grade (%)</label>
+                            <input type="number" id="grade" class="numInput" name="number[]" placeholder="90">
+                        </div>
+                        <div class="col">
+                            <label for="weight">Weight (%)</label>
+                            <input type="number" id="weight" class="numInput" name="number[]" placeholder="12.5">
+                        </div>
+                    </form>
                 </div>
-                <div class="col">
-                    <label for="grade">Grade (%)</label>
-                    <input type="number" id="grade" name="number[]" class="input_grade">
+                <!-- container -->
+
+                <div class="row" id="currentGradeButtons">
+                    <button onclick="addRow()" id="addRowBtn">+</button>
+                    <button onclick="calcCurrentGrade()" id="calcCurrentGrade">Calculate</button>
                 </div>
-                <div class="col">
-                    <label for="weight">Weight (%)</label>
-                    <input type="number" id="weight" name="number[]" class="input_weight">
+                <!-- buttons -->
+
+                <br>
+
+                <div class="row" id="desiredGrade">
+                    <p>(Optional) Desired final grade: </p>
+                    <input type="number" class="numInput" name="number[]">
+                    <p>%</p>
                 </div>
+
+            </div>
+            <div class="col" id="output" style="background-color:gray;">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis qui inventore laboriosam pariatur
+                    voluptatum? Quae velit at, culpa, porro ea natus quo dolores harum atque quos sapiente illo placeat
+                    eveniet?</p>
             </div>
         </div>
 
-        <button onclick="addRow()">Add Row</button>
-
-
         <button class="accordion">Current Grade</button>
         <div class="panel">
-            <p>Akin</p>
-            <p>Akin</p>
-            <p>Akin</p>
-            <p>Akin</p>
-            <p>Akin</p>
-            <p>Akin</p>
         </div>
 
         <button class="accordion">Final Grade</button>
         <div class="panel">
-            <p>Akin</p>
-            <p>Akin</p>
-            <p>Akin</p>
-            <p>Akin</p>
-            <p>Akin</p>
-            <p>Akin</p>
         </div>
 
-        <button class="accordion">GPA Grade</button>
+        <!-- <button class="accordion">GPA Grade</button> -->
         <div class="panel">
-            <p>Akin</p>
-            <p>Akin</p>
-            <p>Akin</p>
-            <p>Akin</p>
-            <p>Akin</p>
-            <p>Akin</p>
         </div>
     </div>
 
+    <!-- TODO: Footer -->
+
     <script type="text/javascript" src="script.js"></script>
 </body>
+
 </html>
