@@ -3,10 +3,95 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <title>Jules' Grade Calculator</title>
+    <script>
+        function addTextBoxes() {
+            var container = document.getElementById("container");
+
+            // Create a new container for the text boxes
+            var newContainer = document.createElement("div");
+
+            // Create the text boxes and append them to the new container
+            newContainer.innerHTML = `
+                    <input type="text" name="textbox[]" placeholder="Text Box 1">
+                    <input type="text" name="textbox[]" placeholder="Text Box 2">
+                    <input type="text" name="textbox[]" placeholder="Text Box 3">
+                `;
+
+            // Append the new container to the main container
+            container.appendChild(newContainer);
+        }
+    </script>
 </head>
 
 <body>
-    <h1>Nothing is here yet, but there will be someting soon!</h1>
+    <div>
+        <h2>Color Pallete</h2>
+        <p>Background: #222222 (gray)</p>
+        <p>Text: #ffffff</p>
+        <p>Accent Color 1: <span style="color:#ff9800">#ff9800</span></p>
+        <p>Accent Color 2: <span style="color:#9c27b0">#9c27b0</span></p>
+        <p>Accent Color 3: <span style="color:#8B0000">#8B0000</span></p>
+        <p>Accent Color 4: <span style="color:#800000">#800000</span></p>
+        <p>Accent Color 5: <span style="color:#990000">#990000</span></p>
+    </div>
+
+    <hr>
+    
+    <div class="main">
+
+        <div id="container">
+            <div class="row">
+                <div class="col">
+                    <label for="name">Name (optional)</label>
+                    <input type="text" id="name" name="textbox[]" placeholder="ex. Assignment 1" class="input_name">
+                </div>
+                <div class="col">
+                    <label for="grade">Grade (%)</label>
+                    <input type="number" id="grade" name="number[]" class="input_grade">
+                </div>
+                <div class="col">
+                    <label for="weight">Weight (%)</label>
+                    <input type="number" id="weight" name="number[]" class="input_weight">
+                </div>
+            </div>
+        </div>
+
+        <button onclick="addRow()">Add Row</button>
+
+
+        <button class="accordion">Current Grade</button>
+        <div class="panel">
+            <p>Akin</p>
+            <p>Akin</p>
+            <p>Akin</p>
+            <p>Akin</p>
+            <p>Akin</p>
+            <p>Akin</p>
+        </div>
+
+        <button class="accordion">Final Grade</button>
+        <div class="panel">
+            <p>Akin</p>
+            <p>Akin</p>
+            <p>Akin</p>
+            <p>Akin</p>
+            <p>Akin</p>
+            <p>Akin</p>
+        </div>
+
+        <button class="accordion">GPA Grade</button>
+        <div class="panel">
+            <p>Akin</p>
+            <p>Akin</p>
+            <p>Akin</p>
+            <p>Akin</p>
+            <p>Akin</p>
+            <p>Akin</p>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="script.js"></script>
 </body>
 </html>
