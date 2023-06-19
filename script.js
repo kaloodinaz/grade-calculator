@@ -14,10 +14,6 @@ for (var i = 0; i < acc.length; i++) {
     });
 }
 
-function calcCurrentGrade() {
-    
-}
-
 function addRow(holderName, holderGrade, holderWeight) {
     var container = document.getElementById("container");
 
@@ -25,8 +21,7 @@ function addRow(holderName, holderGrade, holderWeight) {
     rowCount++;
     var form = document.createElement("form");
     form.className = "row";
-    var formId = "row"+rowCount;
-    form.setAttribute("id", formId);
+    form.setAttribute("id", "row" + rowCount);
 
     // Create the input elements
     var nameInput = document.createElement("input");
@@ -39,6 +34,7 @@ function addRow(holderName, holderGrade, holderWeight) {
 
     var gradeInput = document.createElement("input");
     gradeInput.type = "number";
+    gradeInput.id = "grade";
     gradeInput.className = "numInput";
     gradeInput.name = "number[]";
     if (holderGrade != undefined) {  // if there is a value
@@ -47,21 +43,37 @@ function addRow(holderName, holderGrade, holderWeight) {
 
     var weightInput = document.createElement("input");
     weightInput.type = "number";
+    weightInput.id = "weight";
     weightInput.className = "numInput";
     weightInput.name = "number[]";
     if (holderWeight != undefined) {  // if there is a value
         weightInput.placeholder = holderWeight;
     }
 
-    // Append the input elements to the new row
     form.appendChild(nameInput);
     form.appendChild(gradeInput);
     form.appendChild(weightInput);
 
-    // Insert the row into a form
-
     // Append the new row to the container
     container.appendChild(form);
+}
+
+function calcCurrentGrade() {
+    var container = document.getElementById("container");
+
+    for(var i = 0; i <= rowCount; i++) {
+        var form = document.getElementById("row" + i);
+
+        var gradeInput = form.querySelector("#grade");
+        var grade = gradeInput.value;
+
+        var weightInput = form.querySelector("#weight");
+        var weight = weightInput.value;
+
+        // Perform Calculations
+        
+        console.log(("row"+i)+":\t"+grade+"\t"+weight);
+    }
 }
 
 addRow("Assignment 2", "80", "12.5");
