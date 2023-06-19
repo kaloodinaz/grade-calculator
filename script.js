@@ -59,21 +59,27 @@ function addRow(holderName, holderGrade, holderWeight) {
 }
 
 function calcCurrentGrade() {
-    var container = document.getElementById("container");
+    var average = 0;
+    var totalWeight = 0;
 
     for(var i = 0; i <= rowCount; i++) {
         var form = document.getElementById("row" + i);
 
         var gradeInput = form.querySelector("#grade");
-        var grade = gradeInput.value;
-
+        var grade = parseFloat(gradeInput.value);
+        
         var weightInput = form.querySelector("#weight");
-        var weight = weightInput.value;
+        var weight = parseFloat(weightInput.value);       
+
+        if (isNaN(grade) || isNaN(weight))
+            continue;
 
         // Perform Calculations
-        
-        console.log(("row"+i)+":\t"+grade+"\t"+weight);
+        average = average + (grade*(weight/100));
+        totalWeight = totalWeight + weight;
     }
+    
+    console.log(`Average of ${average} and \n combined weight of ${totalWeight}`);
 }
 
 addRow("Assignment 2", "80", "12.5");
