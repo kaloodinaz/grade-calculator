@@ -105,9 +105,18 @@ function writeOutput(average, weight) {
     var outputWeightInput = document.getElementById("outputWeight");
     outputWeightInput.value = weight;
 
+    var optionalOutput = document.getElementById("optionalGrade");
+    optionalOutput.innerHTML = "";
+}
+
+function writeOptionalOutput(average, weight, desiredGrade) {
+    var optionalOutput = document.getElementById("optionalGrade");
+    optionalOutput.innerHTML = "";
+
     if (weight < 100) {
-        var remainder = 100 - weight;
-        
+        var rWeight = 100 - weight;
+        var requiredGrade = (desiredGrade - average) / (rWeight / 100);
+        optionalOutput.innerHTML = `<p>You need to score an average of <span class=\"highlight_num\">${requiredGrade}%</span> for the remaining ${rWeight}% to end with ${desiredGrade}% in your class.</p>`;
     }
 }
 
@@ -134,6 +143,12 @@ function calcCurrentGrade() {
     if (average == 0 && totalWeight == 0) return;
 
     writeOutput(average, totalWeight);
+
+    var desiredGradeInput = document.getElementById("desiredGrade");
+    var desiredGrade = desiredGradeInput.value;
+    if (desiredGrade.trim() != "") {
+        writeOptionalOutput(average, totalWeight, desiredGrade);
+    }
 }
 
 // Initialization
