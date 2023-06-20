@@ -6,39 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="style.css" />
     <title>Jules' Grade Calculator</title>
-    <script>
-        function addTextBoxes() {
-            var container = document.getElementById("container");
-
-            // Create a new container for the text boxes
-            var newContainer = document.createElement("div");
-
-            // Create the text boxes and append them to the new container
-            newContainer.innerHTML = `
-                    <input type="text" name="textbox[]" placeholder="Text Box 1">
-                    <input type="text" name="textbox[]" placeholder="Text Box 2">
-                    <input type="text" name="textbox[]" placeholder="Text Box 3">
-                `;
-
-            // Append the new container to the main container
-            container.appendChild(newContainer);
-        }
-    </script>
 </head>
 
 <body>
-    <div>
-        <h2>Color Pallete</h2>
-        <p>Background: #222222 (gray)</p>
-        <p>Text: #ffffff</p>
-        <p>Accent Color 1: <span style="color:#ff9800">#ff9800</span></p>
-        <p>Accent Color 2: <span style="color:#9c27b0">#9c27b0</span></p>
-        <p>Accent Color 3: <span style="color:#8B0000">#8B0000</span></p>
-        <p>Accent Color 4: <span style="color:#800000">#800000</span></p>
-        <p>Accent Color 5: <span style="color:#990000">#990000</span></p>
-    </div>
-
-    <hr>
 
     <div class="main">
 
@@ -53,11 +23,11 @@
                         </div>
                         <div class="col_label">
                             <label for="grade">Grade (%)</label>
-                            <input type="number" id="grade" class="numInput" name="number[]" placeholder="90">
+                            <input type="number" id="grade" class="numInput" placeholder="90">
                         </div>
                         <div class="col_label">
                             <label for="weight">Weight (%)</label>
-                            <input type="number" id="weight" class="numInput" name="number[]" placeholder="12.5">
+                            <input type="number" id="weight" class="numInput"  placeholder="12.5">
                         </div>
                     </form>
                 </div>
@@ -70,12 +40,12 @@
 
                 <div class="row" id="optional">
                     <label for="desiredGrade">(Optional) I want a final average of :</label>
-                    <input type="number" id="desiredGrade" class="numInput" name="number[]">
+                    <input type="number" id="desiredGrade" class="numInput"">
                 </div>
 
                 <div class="row">
                     <button onclick="calcCurrentGrade()" id="calcCurrentGrade">Calculate</button>
-                    <button onclick="" id="reset">Reset</button>
+                    <button onclick="resetRows()" id="reset">Reset</button>
                 </div>
 
                 <br>
@@ -102,7 +72,7 @@
             </div>
         </div>
 
-        <button class="accordion">Current Grade</button>
+        <!-- <button class="accordion">Current Grade</button>
         <div class="panel">
         </div>
 
@@ -110,9 +80,9 @@
         <div class="panel">
         </div>
 
-        <!-- <button class="accordion">GPA Grade</button> -->
         <div class="panel">
-        </div>
+        </div> -->
+
     </div>
 
     <!-- TODO: Footer -->

@@ -1,5 +1,21 @@
 var rowCount = 1;
 
+function initAccordion() {
+    var acc = document.getElementsByClassName("accordion");
+
+    for (var i = 0; i < acc.length; i++) {
+        acc[i].addEventListener("click", function () {
+            this.classList.toggle("active");
+            var panel = this.nextElementSibling;
+            if (panel.style.maxHeight) {
+                panel.style.maxHeight = null;
+            } else {
+                panel.style.maxHeight = panel.scrollHeight + "px";
+            }
+        });
+    }
+}
+
 function addRow(holderName, holderGrade, holderWeight) {
     var container = document.getElementById("container");
 
@@ -44,26 +60,24 @@ function addRow(holderName, holderGrade, holderWeight) {
     container.appendChild(form);
 }
 
-function initAccordion() {
-    var acc = document.getElementsByClassName("accordion");
-
-    for (var i = 0; i < acc.length; i++) {
-        acc[i].addEventListener("click", function () {
-            this.classList.toggle("active");
-            var panel = this.nextElementSibling;
-            if (panel.style.maxHeight) {
-                panel.style.maxHeight = null;
-            } else {
-                panel.style.maxHeight = panel.scrollHeight + "px";
-            }
-        });
-    }
-}
-
 function initRows() {
     addRow("Assignment 2", "80", "12.5");
     addRow("Midterm", "77", "25");
     addRow("Assignment 3", "89", "15");
+}
+
+function resetRows() {
+    var container = document.getElementById("container");
+    var firstRow = document.getElementById("row1");
+    firstRow.reset();
+
+    for (var i = rowCount; i > 1; i--) {
+        var row = document.getElementById(`row${i}`);
+        container.removeChild(row);
+        rowCount--;
+    }
+
+    initRows();
 }
 
 function findLetterGrade(average) {
@@ -116,7 +130,7 @@ function writeOptionalOutput(average, weight, desiredGrade) {
     if (weight < 100) {
         var rWeight = 100 - weight;
         var requiredGrade = (desiredGrade - average) / (rWeight / 100);
-        optionalOutput.innerHTML = `<p>You need to score an average of <span class=\"highlight_num\">${requiredGrade}%</span> for the remaining ${rWeight}% to end with ${desiredGrade}% in your class.</p>`;
+        optionalOutput.innerHTML = `<p>You need to score an average of <span class=\"highlight_num\">${requiredGrade}%</span> for the remaining <span class=\"highlight_num\">${rWeight}%</span> to end with <span class=\"highlight_num\">${desiredGrade}%</span> in your class.</p>`;
     }
 }
 
