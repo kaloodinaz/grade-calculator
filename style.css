@@ -9,10 +9,14 @@ p {
     padding: 0;
 }
 
+input {
+    border-radius: 6px;
+}
+
 .main {
     width: 800px;
     margin: 0 auto;
-    padding: 10px;
+    /* padding: 10px; */
 }
 
 /* Style the buttons that are used to open and close the accordion panel */
@@ -66,7 +70,8 @@ p {
     flex-direction: row;
 }
 
-.col {
+/* ! Theres a chance you wont need col_label */
+.col, .col_label {
     display: flex;
     flex-direction: column;
 }
@@ -75,10 +80,6 @@ p {
     font-size: 16px;
     height: 30px;
     margin: 3px;
-}
-
-#name {
-    width: 200px;
 }
 
 .numInput {
@@ -90,30 +91,93 @@ label {
     margin: 4px 2px;
 }
 
-#currentGradeButtons button {
+#addRowBtn, #calcCurrentGrade, #reset {
     font-size: 16px;
+    font-weight: bold;
     height: 40px;
-    margin: 4px 2px;
+    margin: 4px 3px;
 }
 
 #addRowBtn {
-    background-color: rgb(70, 199, 70);
-    width: 40px;
+    width: 100%;
+    height: 30px;
+
+    font-size: 14px;
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    background-color: #333333;
+    transition: 0.1s ease-in;
 }
 
-#optional {
+#addRowBtn:hover {
+    background-color: #4d4d4d;
+}
+
+#addRowBtn:active {
+    background-color: #333333;
+}
+
+#calcCurrentGrade, #reset {
+    padding: 6px;
+    border-radius: 6px;
+}
+
+#calcCurrentGrade {
+    color: rgb(0, 180, 0);
+    background-color: rgba(0, 0, 0, 0);
+    border: 2px solid rgb(0, 180, 0);
+    transition: 0.1s ease-in;
+}
+
+#calcCurrentGrade:hover {
+    color: white;
+    background-color: rgb(0, 180, 0);
+}
+
+#calcCurrentGrade:active {
+    background-color: rgb(0, 150, 0);
+    border: 2px solid rgb(0, 150, 0);
+}
+
+#reset {
+    color: rgb(255, 30, 30);
+    background-color: rgba(0, 0, 0, 0);
+    border: 2px solid rgb(255, 30, 30);
+    transition: 0.1s ease-in;
+}
+
+#reset:hover {
+    color: white;
+    background-color: rgb(255, 30, 30);
+}
+
+#reset:active {
+    background-color: rgb(220, 0, 0);
+    border: 2px solid rgb(220, 0, 0);
+}
+
+.s1 {
     align-items: center;
 }
 
-
-
-#output { 
-    padding: 20px;
+.s1s1, .s1s2 {
+    width: 358px;
 }
+
+#optional, .s1s2 .row {
+    align-items: center;
+    justify-content: space-between;
+}
+
+#optional label, output {
+    font-size: 16px;
+}
+
 
 /* Mobile Screens */
 @media (max-width: 768px) {
     .main {
-        width: 100%;
+        width: 400px;
     }
 }
