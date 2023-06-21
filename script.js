@@ -25,36 +25,50 @@ function addRow(holderName, holderGrade, holderWeight) {
     form.className = "row";
     form.setAttribute("id", "row" + rowCount);
 
+    // Divs
+    var nameDiv = document.createElement("div");
+    nameDiv.className = "col name";
+
+    var gradeDiv = document.createElement("div");
+    gradeDiv.className = "col num";
+
+    var weightDiv = document.createElement("div");
+    weightDiv.className = "col num";
+
     // Create the input elements
     var nameInput = document.createElement("input");
     nameInput.type = "text";
     nameInput.id = "name";
-    nameInput.name = "textbox[]";
     if (holderName != undefined) {  // if there is a value
         nameInput.placeholder = "ex. " + holderName;
     }
 
+    nameDiv.appendChild(nameInput);
+    form.appendChild(nameDiv);
+
     var gradeInput = document.createElement("input");
     gradeInput.type = "number";
     gradeInput.id = "grade";
-    gradeInput.className = "numInput";
-    gradeInput.name = "number[]";
     if (holderGrade != undefined) {  // if there is a value
         gradeInput.placeholder = holderGrade;
     }
 
+    gradeDiv.appendChild(gradeInput);
+    form.appendChild(gradeDiv);
+
     var weightInput = document.createElement("input");
     weightInput.type = "number";
     weightInput.id = "weight";
-    weightInput.className = "numInput";
-    weightInput.name = "number[]";
     if (holderWeight != undefined) {  // if there is a value
         weightInput.placeholder = holderWeight;
     }
 
-    form.appendChild(nameInput);
-    form.appendChild(gradeInput);
-    form.appendChild(weightInput);
+    weightDiv.appendChild(weightInput);
+    form.appendChild(weightDiv);
+
+    // form.appendChild();
+    // form.appendChild();
+    // form.appendChild();
 
     // Append the new row to the container
     container.appendChild(form);

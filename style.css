@@ -12,6 +12,7 @@ p {
 }
 
 input {
+    border: 1px solid black;
     border-radius: 6px;
 }
 
@@ -73,19 +74,27 @@ input {
 }
 
 /* ! Theres a chance you wont need col_label */
-.col, .col_label {
+.col {
     display: flex;
     flex-direction: column;
+}
+
+.text_label {
+    width: 80%;
+}
+
+.name {
+    width: 60%;
+}
+
+.num {
+    width: 20%;
 }
 
 .row input {
     font-size: 16px;
     height: 30px;
     margin: 3px;
-}
-
-.numInput {
-    width: 60px;
 }
 
 label {
@@ -172,7 +181,7 @@ label {
     font-size: 16px;
 }
 
-.highlight_num { 
+.highlight_num {
     color: rgb(60, 170, 253);
     font-weight: bold;
 }

@@ -11,66 +11,68 @@
 <body>
 
     <div class="main">
+        <!-- Column 1 -->
+        <div class="col s1s1">
+            <div id="container">
+                <form class="row" id="row1">
+                    <div class="col name">
+                        <label for="name">Name (optional)</label>
+                        <input type="text" id="name" name="textbox[]" placeholder="ex. Assignment 1">
+                    </div>
+                    <div class="col num">
+                        <label for="grade">Grade (%)</label>
+                        <input type="number" id="grade" placeholder="90">
+                    </div>
+                    <div class="col num">
+                        <label for="weight">Weight (%)</label>
+                        <input type="number" id="weight" placeholder="12.5">
+                    </div>
+                </form>
+            </div>
+            <!-- container -->
 
-        <div class="col s1">
-            <!-- Column 1 -->
-            <div class="col s1s1">
-                <div id="container">
-                    <form class="row" id="row1">
-                        <div class="col_label">
-                            <label for="name">Name (optional)</label>
-                            <input type="text" id="name" name="textbox[]" placeholder="ex. Assignment 1">
-                        </div>
-                        <div class="col_label">
-                            <label for="grade">Grade (%)</label>
-                            <input type="number" id="grade" class="numInput" placeholder="90">
-                        </div>
-                        <div class="col_label">
-                            <label for="weight">Weight (%)</label>
-                            <input type="number" id="weight" class="numInput"  placeholder="12.5">
-                        </div>
-                    </form>
+            <div class="row">
+                <button onclick="addRow()" id="addRowBtn">Add Row</button>
+            </div>
+            <!-- buttons -->
+
+            <div class="row" id="optional">
+                <p>(Optional) I want a final average of</p>
+                <div class="col num">
+                    <input type="number" id="desiredGrade">
                 </div>
-                <!-- container -->
-
-                <div class="row">
-                    <button onclick="addRow()" id="addRowBtn">Add Row</button>
-                </div>
-                <!-- buttons -->
-
-                <div class="row" id="optional">
-                    <label for="desiredGrade">(Optional) I want a final average of :</label>
-                    <input type="number" id="desiredGrade" class="numInput"">
-                </div>
-
-                <div class="row">
-                    <button onclick="calcCurrentGrade()" id="calcCurrentGrade">Calculate</button>
-                    <button onclick="resetRows()" id="reset">Reset</button>
-                </div>
-
-                <br>
-
+            </div>
+            <div class=" row">
+                <button onclick="calcCurrentGrade()" id="calcCurrentGrade">Calculate</button>
+                <button onclick="resetRows()" id="reset">Reset</button>
             </div>
 
-            <!-- Column 2 -->
-            <div class="col s1s2" id="output">
-                <!-- TODO: make these inputs a different shade color -->
-                <div class="row">
-                    <p>Your average grade (%) is :</p>
-                    <input type="number" id="outputGrade" class="numInput" readonly>
-                </div>
-                <div class="row">
-                    <p>With combined weight (%) :</p>
-                    <input type="number" id="outputWeight" class="numInput" readonly>
-                </div>
+            <br>
 
-                <br>
+        </div>
 
-                <div class="row" id="optionalGrade">
-                    
+        <!-- Column 2 -->
+        <div class="col s1s2" id="output">
+            <div class="row">
+                <p>Your average grade (%)</p>
+                <div class="col num">
+                    <input type="number" id="outputGrade" readonly>
                 </div>
+            </div>
+            <div class="row">
+                <p>With combined weight (%)</p>
+                <div class="col num">
+                    <input type="number" id="outputWeight" readonly>
+                </div>
+            </div>
+
+            <br>
+
+            <div class="row" id="optionalGrade">
+
             </div>
         </div>
+
 
         <!-- <button class="accordion">Current Grade</button>
         <div class="panel">
