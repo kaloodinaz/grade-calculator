@@ -4,6 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="style.css" />
     <title>Jules' Grade Calculator</title>
 </head>
@@ -11,83 +14,115 @@
 <body>
 
     <div class="main">
-        <!-- Column 1 -->
-        <div class="col s1s1">
-            <div id="container">
-                <form class="row" id="row1">
-                    <div class="col name">
-                        <label for="name">Name (optional)</label>
-                        <input type="text" id="name" name="textbox[]" placeholder="ex. Assignment 1">
-                    </div>
+        <div class="content_wrapper">
+
+            <div class="col descriptor">
+                <h2>Current Grade Calculator</h2>
+                <p>Calculate current grades, and determine required performance for desired grade.</p>
+            </div>
+
+            <hr>
+
+            <div class="col">
+                <div id="container">
+                    <form class="row" id="row1">
+                        <div class="col name">
+                            <label for="name">Name (optional)</label>
+                            <input type="text" class="selectable" id="name" name="textbox[]"
+                                placeholder="ex. Assignment 1">
+                        </div>
+                        <div class="col num">
+                            <label for="grade">Grade (%)</label>
+                            <input type="number" class="selectable" id="grade" placeholder="90">
+                        </div>
+                        <div class="col num">
+                            <label for="weight">Weight (%)</label>
+                            <input type="number" class="selectable" id="weight" placeholder="12.5">
+                        </div>
+                    </form>
+                </div>
+
+                <div class="row">
+                    <button onclick="addRow()" id="addRowBtn">Add Row</button>
+                </div>
+
+                <div class="row" id="optional">
+                    <p><em><span class="hide">(Optional)</span></em> My target grade (%)</p>
                     <div class="col num">
-                        <label for="grade">Grade (%)</label>
-                        <input type="number" id="grade" placeholder="90">
+                        <input type="number" class="selectable" id="desiredGrade">
                     </div>
+                </div>
+                <div class="row">
+                    <button onclick="calcCurrentGrade()" id="calculate">Calculate</button>
+                    <button onclick="resetRows()" id="reset">Reset</button>
+                </div>
+            </div>
+
+            <div class="col space_between" id="output">
+                <div class="row">
+                    <p>Your average grade (%)</p>
                     <div class="col num">
-                        <label for="weight">Weight (%)</label>
-                        <input type="number" id="weight" placeholder="12.5">
+                        <input type="number" class="unselectable" id="outputGrade" readonly>
                     </div>
-                </form>
-            </div>
-            <!-- container -->
-
-            <div class="row">
-                <button onclick="addRow()" id="addRowBtn">Add Row</button>
-            </div>
-            <!-- buttons -->
-
-            <div class="row" id="optional">
-                <p>(Optional) I want a final average of</p>
-                <div class="col num">
-                    <input type="number" id="desiredGrade">
                 </div>
-            </div>
-            <div class=" row">
-                <button onclick="calcCurrentGrade()" id="calcCurrentGrade">Calculate</button>
-                <button onclick="resetRows()" id="reset">Reset</button>
-            </div>
-
-            <br>
-
-        </div>
-
-        <!-- Column 2 -->
-        <div class="col s1s2" id="output">
-            <div class="row">
-                <p>Your average grade (%)</p>
-                <div class="col num">
-                    <input type="number" id="outputGrade" readonly>
+                <div class="row">
+                    <p>With combined weight (%)</p>
+                    <div class="col num">
+                        <input type="number" class="unselectable" id="outputWeight" readonly>
+                    </div>
                 </div>
-            </div>
-            <div class="row">
-                <p>With combined weight (%)</p>
-                <div class="col num">
-                    <input type="number" id="outputWeight" readonly>
+
+                <hr>
+
+
+                <div class="row" id="optionalGrade">
                 </div>
             </div>
 
-            <br>
+        </div>
 
-            <div class="row" id="optionalGrade">
-
+        <div class="content_wrapper">
+            <div class="col descriptor">
+                <h2>Final Grade Calculator</h2>
+                <p>Calculate your final grade, and determine required performance for desired grade.</p>
             </div>
+
+            <hr>
+
+            <div class="col space_between" id="output">
+                <div class="row">
+                    <p>My current grade (%)</p>
+                    <div class="col num">
+                        <input type="number" class="selectable" id="currentGrade">
+                    </div>
+                </div>
+                <div class="row">
+                    <p>My target grade (%)</p>
+                    <div class="col num">
+                        <input type="number" class="selectable" id="targetGrade">
+                    </div>
+                </div>
+                <div class="row">
+                    <p>Final Exam weight (%)</p>
+                    <div class="col num">
+                        <input type="number" class="selectable" id="finalExamWeight">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <button onclick="calcFinalGrade()" id="calculate">Calculate</button>
+                <button onclick="resetFinalGrade()" id="reset">Reset</button>
+            </div>
+
+            <hr>
+
+            <div class="row" id="finalGradeOutput">
+            </div>
+
+
         </div>
-
-
-        <!-- <button class="accordion">Current Grade</button>
-        <div class="panel">
-        </div>
-
-        <button class="accordion">Final Grade</button>
-        <div class="panel">
-        </div>
-
-        <div class="panel">
-        </div> -->
-
     </div>
-
-    <!-- TODO: Footer -->
 
     <script type="text/javascript" src="script.js"></script>
 </body>

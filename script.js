@@ -1,3 +1,4 @@
+// Initial variables
 var rowCount = 1;
 
 function initAccordion() {
@@ -38,9 +39,10 @@ function addRow(holderName, holderGrade, holderWeight) {
     // Create the input elements
     var nameInput = document.createElement("input");
     nameInput.type = "text";
+    nameInput.className = "selectable";
     nameInput.id = "name";
     if (holderName != undefined) {  // if there is a value
-        nameInput.placeholder = "ex. " + holderName;
+        nameInput.placeholder = holderName;
     }
 
     nameDiv.appendChild(nameInput);
@@ -48,6 +50,7 @@ function addRow(holderName, holderGrade, holderWeight) {
 
     var gradeInput = document.createElement("input");
     gradeInput.type = "number";
+    gradeInput.className = "selectable";
     gradeInput.id = "grade";
     if (holderGrade != undefined) {  // if there is a value
         gradeInput.placeholder = holderGrade;
@@ -58,6 +61,7 @@ function addRow(holderName, holderGrade, holderWeight) {
 
     var weightInput = document.createElement("input");
     weightInput.type = "number";
+    weightInput.className = "selectable";
     weightInput.id = "weight";
     if (holderWeight != undefined) {  // if there is a value
         weightInput.placeholder = holderWeight;
@@ -75,9 +79,20 @@ function addRow(holderName, holderGrade, holderWeight) {
 }
 
 function initRows() {
-    addRow("Assignment 2", "80", "12.5");
-    addRow("Midterm", "77", "25");
-    addRow("Assignment 3", "89", "15");
+    addRow("", "", "");
+    addRow("", "", "");
+    addRow("", "", "");
+}
+
+function resetFinalGrade() {
+    var currentGrade = document.getElementById("currentGrade");
+    currentGrade.value = "";
+
+    var targetGrade = document.getElementById("targetGrade");
+    targetGrade.value = "";
+
+    var finalExamWeight = document.getElementById("finalExamWeight");
+    finalExamWeight.value = "";
 }
 
 function resetRows() {
@@ -124,7 +139,7 @@ function findLetterGrade(average) {
 }
 
 function writeOutput(average, weight) {
-    var letterGrade = findLetterGrade(average);
+    // var letterGrade = findLetterGrade(average);
 
     // Retrieve the input elements
     var outputGradeInput = document.getElementById("outputGrade");
@@ -144,8 +159,41 @@ function writeOptionalOutput(average, weight, desiredGrade) {
     if (weight < 100) {
         var rWeight = 100 - weight;
         var requiredGrade = (desiredGrade - average) / (rWeight / 100);
+        requiredGrade = Math.round(requiredGrade * 100) / 100;
         optionalOutput.innerHTML = `<p>You need to score an average of <span class=\"highlight_num\">${requiredGrade}%</span> for the remaining <span class=\"highlight_num\">${rWeight}%</span> to end with <span class=\"highlight_num\">${desiredGrade}%</span> in your class.</p>`;
     }
+}
+
+function isNegative(a, b, c, d) {
+    if (a < 0 || b < 0 || c < 0 || d < 0) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+function calcFinalGrade() {
+    var finalGradeOutput = document.getElementById('finalGradeOutput');
+    finalGradeOutput.innerHTML = "";
+
+    var currentGradeInput = document.getElementById("currentGrade");
+    var currentGrade = Math.round(currentGradeInput.value * 100) / 100;
+
+    var targetGradeInput = document.getElementById("targetGrade");
+    var targetGrade = Math.round(targetGradeInput.value * 100) / 100;
+
+    var finalExamWeightInput = document.getElementById("finalExamWeight");
+    var finalExamWeight = Math.round(finalExamWeightInput.value * 100) / 100;
+
+    if (currentGrade < 0 || currentGrade > 100 || targetGrade < 0 || targetGrade > 100 || finalExamWeight < 0 || finalExamWeight >= 100) {
+        alert("Final Grade Calculator error. Check for the following:\n\n\u2022 Negative numbers (-)\n\u2022 Values over 100\n\u2022 Exponent symbols (\"e\" or \"E\")\n\u2022 Blank entries");
+        return;
+    }
+
+    var requiredGrade = (targetGrade - (currentGrade*((100-finalExamWeight)/100))) / ((finalExamWeight)/100);
+    requiredGrade = Math.round(requiredGrade * 100) / 100;
+
+    finalGradeOutput.innerHTML = `<p>You need to score an average of <span class=\"highlight_num\">${requiredGrade}%</span> to end with <span class=\"highlight_num\">${targetGrade}%</span> in your class.</p>`;
 }
 
 function calcCurrentGrade() {
@@ -156,16 +204,29 @@ function calcCurrentGrade() {
         var form = document.getElementById("row" + i);
 
         var gradeInput = form.querySelector("#grade");
-        var grade = parseFloat(gradeInput.value);
+        var grade = parseFloat(gradeInput.value);   // grade value
 
         var weightInput = form.querySelector("#weight");
-        var weight = parseFloat(weightInput.value);
+        var weight = parseFloat(weightInput.value); // weight value
 
+        // If either inputs are left blank, then skip reading this row
         if (isNaN(grade) || isNaN(weight))
             continue;
 
+        // Rounding these values to 2 decimal places
+        grade = Math.round(grade * 100) / 100;
+        weight = Math.round(weight * 100) / 100;
+
         average = average + (grade * (weight / 100));
+        average = Math.round(average * 100) / 100;
+
         totalWeight = totalWeight + weight;
+        totalWeight = Math.round(totalWeight * 100) / 100;
+
+        if (totalWeight > 100 || isNegative(grade, weight, average, totalWeight)) {
+            alert("Current Grade Calculator error. Check for the following:\n\n\u2022 Negative numbers (-)\n\u2022 Values over 100\n\u2022 Exponent symbols (\"e\" or \"E\")");
+            return;
+        }
     }
 
     if (average == 0 && totalWeight == 0) return;

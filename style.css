@@ -1,71 +1,55 @@
 body {
-    font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
-    /* background-color: #222222;
-    color: #ffffff; */
-    display: flex;
-    justify-content: center;
+    font-family: 'Rubik', 'Segoe UI', sans-serif;
+    background-color: rgb(30, 30, 30);
+    color: #ffffff;
+
 }
 
-p {
+p, h1, h2 {
     margin: 0;
     padding: 0;
 }
 
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 2px solid rgb(30, 30, 30);
+    margin: 1em 0;
+    padding: 0;
+}
+
 input {
-    border: 1px solid black;
+    border: 2px solid rgb(80, 80, 80);
     border-radius: 6px;
+}
+
+label {
+    font-size: 13px;
+    margin: 4px 4px;
 }
 
 .main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.content_wrapper {
+    width: 358px;
+    margin: 8px;
     padding: 14px;
-    border: 2px solid black;
+    background-color: rgb(45, 45, 45);
     border-radius: 6px;
 }
 
-/* Style the buttons that are used to open and close the accordion panel */
-.accordion {
-    background-color: #495b68;
-    color: #ffffff;
-    cursor: pointer;
-    padding: 18px;
-    width: 100%;
-    text-align: left;
-    border: none;
-    outline: none;
-    transition: 0.2s;
+.descriptor {
+    text-align: center;
 }
 
-.accordion:after {
-    content: '\02795';
-    /* Unicode character for "plus" sign (+) */
+.descriptor p {
     font-size: 13px;
-    color: #777;
-    float: right;
-    margin-left: 5px;
-}
-
-.active:after {
-    content: "\2796";
-    /* Unicode character for "minus" sign (-) */
-}
-
-/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
-.active, .accordion:hover {
-    background-color: #36454F;
-}
-
-/* Style the accordion panel. Note: hidden by default */
-.panel {
-    background-color: gray;
-    padding: 0 18px;
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.2s ease-out;
-}
-
-#center_content {
-    display: flex;
-    flex-direction: column;
+    font-style: italic;
 }
 
 .row {
@@ -73,7 +57,6 @@ input {
     flex-direction: row;
 }
 
-/* ! Theres a chance you wont need col_label */
 .col {
     display: flex;
     flex-direction: column;
@@ -97,14 +80,24 @@ input {
     margin: 3px;
 }
 
-label {
-    font-size: 14px;
-    margin: 4px 0px;
+.selectable {
+    transition: border 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    box-shadow: none;
 }
 
-#addRowBtn, #calcCurrentGrade, #reset {
+.selectable:focus {
+    border: 2px solid rgb(0, 150, 255);
+    box-shadow: 0 0 5px 3px rgba(0, 150, 175, 1);
+    outline: none;
+}
+
+.unselectable {
+    background-color: rgb(200, 200, 200);
+}
+
+#addRowBtn, #calculate, #reset {
     font-size: 16px;
-    font-weight: bold;
+    /* font-weight: bold; */
     height: 40px;
     margin: 4px 3px;
 }
@@ -115,38 +108,39 @@ label {
 
     font-size: 14px;
     color: #ffffff;
-    border: none;
+    background-color: rgba(0, 0, 0, 0);
+    border: 1px solid rgb(110, 110, 110);
     border-radius: 6px;
-    background-color: #333333;
     transition: 0.1s ease-in;
 }
 
 #addRowBtn:hover {
-    background-color: #4d4d4d;
+    background-color: rgb(90, 90, 90);
+    border: 2px solid rgb(90, 90, 90);
 }
 
 #addRowBtn:active {
-    background-color: #333333;
+    background-color: rgb(110, 110, 110);
 }
 
-#calcCurrentGrade, #reset {
+#calculate, #reset {
     padding: 6px;
     border-radius: 6px;
 }
 
-#calcCurrentGrade {
+#calculate {
     color: rgb(0, 180, 0);
     background-color: rgba(0, 0, 0, 0);
-    border: 2px solid rgb(0, 180, 0);
+    border: 1px solid rgb(0, 180, 0);
     transition: 0.1s ease-in;
 }
 
-#calcCurrentGrade:hover {
+#calculate:hover {
     color: white;
     background-color: rgb(0, 180, 0);
 }
 
-#calcCurrentGrade:active {
+#calculate:active {
     background-color: rgb(0, 150, 0);
     border: 2px solid rgb(0, 150, 0);
 }
@@ -154,7 +148,7 @@ label {
 #reset {
     color: rgb(255, 30, 30);
     background-color: rgba(0, 0, 0, 0);
-    border: 2px solid rgb(255, 30, 30);
+    border: 1px solid rgb(255, 30, 30);
     transition: 0.1s ease-in;
 }
 
@@ -168,11 +162,7 @@ label {
     border: 2px solid rgb(220, 0, 0);
 }
 
-.s1s1, .s1s2 {
-    width: 358px;
-}
-
-#optional, .s1s2 .row {
+#optional, .space_between .row {
     align-items: center;
     justify-content: space-between;
 }
@@ -181,15 +171,22 @@ label {
     font-size: 16px;
 }
 
+#optionalGrade p {
+    /* text-align: justify; */
+}
+
 .highlight_num {
     color: rgb(60, 170, 253);
     font-weight: bold;
 }
 
+.hide {
+    color: rgb(180, 180, 180);
+}
 
-/* Mobile Screens */
 @media (max-width: 768px) {
-    .col .s1 {
-        width: 100px;
+    p, label {
+        font-size: 13px;
     }
+
 }
