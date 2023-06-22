@@ -2,7 +2,7 @@ body {
     font-family: 'Rubik', 'Segoe UI', sans-serif;
     background-color: rgb(30, 30, 30);
     color: #ffffff;
-
+    margin: 0;
 }
 
 p, h1, h2 {
@@ -27,6 +27,14 @@ input {
 label {
     font-size: 13px;
     margin: 4px 4px;
+}
+
+footer {
+    border-top: 1px solid rgb(45, 45, 45);
+    background-color: ;
+    margin-top: 20px;
+    padding: 10px 0;
+    text-align: center;
 }
 
 .main {
