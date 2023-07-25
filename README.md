@@ -22,7 +22,7 @@ Calculate your grades for your classes!
 - Given a percentage of the students current grade, targeted grade, and the weight of the final assessment, can be used to determine what grade is required on the final assessment to achieve desired grade.
 <div style="display: flex; justify-content: center; align-items: center;">
     <img src="src/3.PNG" alt="Third Image" width="300"/>
-<img src="src/4.PNG" alt="Fourth Image"  width="300"/>
+    <img src="src/4.PNG" alt="Fourth Image"  width="300"/>
 </div>
 
 #### :moon: Dark / Light Theme
@@ -30,8 +30,10 @@ Calculate your grades for your classes!
 - Dark mode is the default theme to save your eyes, while light mode is also an option.
 - You browser will remember which theme you used last.
 
-![Fifth Image](src/5.PNG)
-![Sixth Image](src/6.PNG)
+<div style="display: flex; justify-content: center; align-items: center;">
+    <img src="src/5.PNG" alt="Fifth Image" width="450"/>
+    <img src="src/6.PNG" alt="Sixth Image" width="450"/>
+</div>
 
 ## :pencil: TODO
 
