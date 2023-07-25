@@ -33,8 +33,8 @@ Visit here: https://julellisg.github.io/Grade-Calculator/
 - You browser will remember which theme you used last.
 
 <div style="display: flex; justify-content: center; align-items: center;">
-    <img src="src/5.PNG" alt="Fifth Image" width="450"/>
-    <img src="src/6.PNG" alt="Sixth Image" width="450"/>
+    <img src="src/5.png" alt="Fifth Image" width="450"/>
+    <img src="src/6.png" alt="Sixth Image" width="450"/>
 </div>
 
 ## :pencil: TODO
