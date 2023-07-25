@@ -8,7 +8,7 @@ Calculate your grades for your classes!
 
 - Intended to help students see what their current grades are by using a weight based grading system.
 - Accessibility to as much space for inserting grades as necessary.
-- Optionally, students can calculate what is needed to achieve their targeted grade by using the current grade that is calculated, along with the leftover weight. 
+- Optionally, students can calculate what is needed to achieve their targeted grade by using the current grade that is calculated, along with the leftover weight.
 
 <div style="display: flex;">
   <div style="flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center;">
@@ -21,8 +21,8 @@ Calculate your grades for your classes!
 
 #### Final Grade Calculator
 
-- Intended to be used when all grades are distributed except for one final examination. 
-- Given a percentage of the students current grade, targeted grade, and the weight of the final assessment, can be used to determine what grade is required on the final assessment to achieve desired grade. 
+- Intended to be used when all grades are distributed except for one final examination.
+- Given a percentage of the students current grade, targeted grade, and the weight of the final assessment, can be used to determine what grade is required on the final assessment to achieve desired grade.
 <div style="display: flex;">
   <div style="flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center;">
     <img src="src/3.PNG" alt="Third Image" width="300"/>
@@ -34,17 +34,19 @@ Calculate your grades for your classes!
 
 #### :moon: Dark / Light Theme
 
-- Dark mode is the default theme to save your eyes, while light mode is also an option. 
-- You browser will remember which theme you used last. 
+- Dark mode is the default theme to save your eyes, while light mode is also an option.
+- You browser will remember which theme you used last.
 
-<img src="src/5.PNG" alt="Fifth Image" />
-<img src="src/6.PNG" alt="Sixth Image" />
+![Fifth Image](src/5.PNG)
+![Sixth Image](src/6.PNG)
 
 ## :pencil: TODO
-- Mathematical explanations for each tool. 
-- Letter Grade/GPA calculator. 
+
+- Mathematical explanations for each tool.
+- Letter Grade/GPA calculator.
 
 ## :book: References
+
 - This grade calculation tool is not my original idea, however during my academic career I have used tools from these people/sources which inspired me to create my own version!
 - **Roger Chen**: https://rogerhub.com/final-grade-calculator/
 - **RapidTables**: https://www.rapidtables.com/calc/grade/grade-calculator.html
