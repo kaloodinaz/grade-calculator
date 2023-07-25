@@ -12,10 +12,10 @@ Calculate your grades for your classes!
 
 <div style="display: flex;">
   <div style="flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center;">
-    <img src="src/1.PNG" alt="First Image" />
+    <img src="src/1.PNG" alt="First Image" width="300" />
   </div>
   <div style="flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center;">
-    <img src="src/2.PNG" alt="Second Image" />
+    <img src="src/2.PNG" alt="Second Image" width="300"/>
   </div>
 </div>
 
@@ -25,10 +25,10 @@ Calculate your grades for your classes!
 - Given a percentage of the students current grade, targeted grade, and the weight of the final assessment, can be used to determine what grade is required on the final assessment to achieve desired grade. 
 <div style="display: flex;">
   <div style="flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center;">
-    <img src="src/3.PNG" alt="Third Image" />
+    <img src="src/3.PNG" alt="Third Image" width="300"/>
   </div>
   <div style="flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center;">
-    <img src="src/4.PNG" alt="Fourth Image" />
+    <img src="src/4.PNG" alt="Fourth Image"  width="300"/>
   </div>
 </div>
 
