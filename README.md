@@ -10,26 +10,19 @@ Calculate your grades for your classes!
 - Accessibility to as much space for inserting grades as necessary.
 - Optionally, students can calculate what is needed to achieve their targeted grade by using the current grade that is calculated, along with the leftover weight.
 
-<div style="display: flex;">
-  <div style="flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center;">
-    <img src="src/1.PNG" alt="First Image" width="300" />
-  </div>
-  <div style="flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+<div style="display: flex; justify-content: center; align-items: center;">
+    <img src="src/1.PNG" alt="First Image" width="300"/>
     <img src="src/2.PNG" alt="Second Image" width="300"/>
-  </div>
 </div>
+
 
 #### Final Grade Calculator
 
 - Intended to be used when all grades are distributed except for one final examination.
 - Given a percentage of the students current grade, targeted grade, and the weight of the final assessment, can be used to determine what grade is required on the final assessment to achieve desired grade.
-<div style="display: flex;">
-  <div style="flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+<div style="display: flex; justify-content: center; align-items: center;">
     <img src="src/3.PNG" alt="Third Image" width="300"/>
-  </div>
-  <div style="flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center;">
-    <img src="src/4.PNG" alt="Fourth Image"  width="300"/>
-  </div>
+<img src="src/4.PNG" alt="Fourth Image"  width="300"/>
 </div>
 
 #### :moon: Dark / Light Theme
