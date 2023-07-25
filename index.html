@@ -12,10 +12,12 @@
 </head>
 
 <body>
-
+    <div id="toggle">
+        <button id="toggleStatus" onclick=" toggleDark()">Dark Mode: ON</button>
+    </div>
+    
     <div class="main">
         <div class="content_wrapper">
-
             <div class="col descriptor">
                 <h2>Current Grade Calculator</h2>
                 <p>Calculate current grades, and determine required performance for desired grade.</p>
@@ -47,7 +49,7 @@
                 </div>
 
                 <div class="row" id="optional">
-                    <p><em><span class="hide">(Optional)</span></em> My target grade (%)</p>
+                    <p>(Optional) My target grade (%)</p>
                     <div class="col num">
                         <input type="number" class="selectable" id="desiredGrade">
                     </div>
@@ -93,19 +95,19 @@
                 <div class="row">
                     <p>My current grade (%)</p>
                     <div class="col num">
-                        <input type="number" class="selectable" id="currentGrade">
+                        <input type="number" class="selectable" id="currentGrade" placeholder="80">
                     </div>
                 </div>
                 <div class="row">
                     <p>My target grade (%)</p>
                     <div class="col num">
-                        <input type="number" class="selectable" id="targetGrade">
+                        <input type="number" class="selectable" id="targetGrade" placeholder="90">
                     </div>
                 </div>
                 <div class="row">
                     <p>Final Exam weight (%)</p>
                     <div class="col num">
-                        <input type="number" class="selectable" id="finalExamWeight">
+                        <input type="number" class="selectable" id="finalExamWeight" placeholder="40">
                     </div>
                 </div>
             </div>
@@ -123,7 +125,7 @@
     </div>
 
     <footer>
-        <p>Julian Ellis Geronimo &copy 2023</p>
+        <a href="https://github.com/Julellisg"><p>Julian Ellis Geronimo &copy 2023</p></a>
     </footer>
     
     <script type="text/javascript" src="script.js"></script>

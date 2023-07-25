@@ -1,7 +1,7 @@
 body {
     font-family: 'Rubik', 'Segoe UI', sans-serif;
     background-color: rgb(30, 30, 30);
-    color: #ffffff;
+    color: white;
     margin: 0;
 }
 
@@ -24,6 +24,10 @@ input {
     border-radius: 6px;
 }
 
+button {
+    font-family: 'Rubik', 'Segoe UI', sans-serif;
+}
+
 label {
     font-size: 13px;
     margin: 4px 4px;
@@ -31,7 +35,7 @@ label {
 
 footer {
     border-top: 1px solid rgb(45, 45, 45);
-    background-color: ;
+    /* background-color: ; */
     margin-top: 20px;
     padding: 10px 0;
     text-align: center;
@@ -55,7 +59,7 @@ footer {
     text-align: center;
 }
 
-.descriptor p {
+.descriptor p, .explanation {
     font-size: 13px;
     font-style: italic;
 }
@@ -105,7 +109,7 @@ footer {
 
 #addRowBtn, #calculate, #reset {
     font-size: 16px;
-    /* font-weight: bold; */
+    font-weight: bold;
     height: 40px;
     margin: 4px 3px;
 }
@@ -115,11 +119,12 @@ footer {
     height: 30px;
 
     font-size: 14px;
-    color: #ffffff;
+    color: white;
     background-color: rgba(0, 0, 0, 0);
-    border: 1px solid rgb(110, 110, 110);
+    border: 2px solid rgb(110, 110, 110);
     border-radius: 6px;
-    transition: 0.1s ease-in;
+
+    transition: 0.4s ease;
 }
 
 #addRowBtn:hover {
@@ -139,7 +144,7 @@ footer {
 #calculate {
     color: rgb(0, 180, 0);
     background-color: rgba(0, 0, 0, 0);
-    border: 1px solid rgb(0, 180, 0);
+    border: 2px solid rgb(0, 180, 0);
     transition: 0.1s ease-in;
 }
 
@@ -156,7 +161,7 @@ footer {
 #reset {
     color: rgb(255, 30, 30);
     background-color: rgba(0, 0, 0, 0);
-    border: 1px solid rgb(255, 30, 30);
+    border: 2px solid rgb(255, 30, 30);
     transition: 0.1s ease-in;
 }
 
@@ -179,17 +184,32 @@ footer {
     font-size: 16px;
 }
 
-#optionalGrade p {
-    /* text-align: justify; */
+#toggle {
+    display: flex;
+    justify-content: center;
+
+    margin-top: 8px;
 }
 
-.highlight_num {
-    color: rgb(60, 170, 253);
-    font-weight: bold;
+#toggleStatus {
+    font-size: 14px;
+    color: white;
+    background-color: rgb(21, 9, 73);
+
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 8px;
+    border-radius: 6px;
+
+    transition: 0.2s background-color ease, 0.2s color ease;
 }
 
-.hide {
-    color: rgb(180, 180, 180);
+/* Transitions for Toggle Dark */
+body, .content_wrapper {
+    transition: background-color 0.2s ease;
+}
+
+p, h2, label, #addRowBtn {
+    transition: color 0.2s ease;
 }
 
 @media (max-width: 768px) {

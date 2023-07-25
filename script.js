@@ -1,21 +1,21 @@
 // Initial variables
 var rowCount = 1;
 
-function initAccordion() {
-    var acc = document.getElementsByClassName("accordion");
+// function initAccordion() {
+//     var acc = document.getElementsByClassName("accordion");
 
-    for (var i = 0; i < acc.length; i++) {
-        acc[i].addEventListener("click", function () {
-            this.classList.toggle("active");
-            var panel = this.nextElementSibling;
-            if (panel.style.maxHeight) {
-                panel.style.maxHeight = null;
-            } else {
-                panel.style.maxHeight = panel.scrollHeight + "px";
-            }
-        });
-    }
-}
+//     for (var i = 0; i < acc.length; i++) {
+//         acc[i].addEventListener("click", function () {
+//             this.classList.toggle("active");
+//             var panel = this.nextElementSibling;
+//             if (panel.style.maxHeight) {
+//                 panel.style.maxHeight = null;
+//             } else {
+//                 panel.style.maxHeight = panel.scrollHeight + "px";
+//             }
+//         });
+//     }
+// }
 
 function addRow(holderName, holderGrade, holderWeight) {
     var container = document.getElementById("container");
@@ -240,6 +240,86 @@ function calcCurrentGrade() {
     }
 }
 
+if (localStorage.getItem("darkMode") === null) {
+    localStorage.setItem("darkMode", "true");
+}
+
+function applyDarkTheme() {
+    const bodyElement = document.body;
+    const contentWrapper = document.querySelectorAll('.content_wrapper');
+    const pElement = document.querySelectorAll('p');
+    const h2Element = document.querySelectorAll('h2');
+    const labelElement = document.querySelectorAll('label');
+    const addRowBtn = document.querySelector('#addRowBtn');
+    const toggleStatus = document.querySelector('#toggleStatus');
+
+    bodyElement.style.backgroundColor = "rgb(30, 30, 30)";
+    contentWrapper.forEach(wrapper => {
+        wrapper.style.backgroundColor = "rgb(45, 45, 45)";
+    });
+    pElement.forEach(p => {
+        p.style.color = "white";
+    });
+    h2Element.forEach(h2 => {
+        h2.style.color = "white";
+    });
+    labelElement.forEach(label => {
+        label.style.color = "white";
+    });
+    addRowBtn.style.color = "white";
+
+    toggleStatus.style.backgroundColor = "rgb(21, 9, 73)";
+    toggleStatus.style.color = "white";
+    toggleStatus.textContent = "Dark Mode: ON";
+}
+
+function applyLightTheme() {
+    const bodyElement = document.body;
+    const contentWrapper = document.querySelectorAll('.content_wrapper');
+    const pElement = document.querySelectorAll('p');
+    const h2Element = document.querySelectorAll('h2');
+    const labelElement = document.querySelectorAll('label');
+    const addRowBtn = document.querySelector('#addRowBtn');
+    const toggleStatus = document.querySelector('#toggleStatus');
+
+    bodyElement.style.backgroundColor = "rgb(255, 255, 255)";
+    contentWrapper.forEach(wrapper => {
+        wrapper.style.backgroundColor = "rgb(200, 200, 200)";
+    });
+    pElement.forEach(p => {
+        p.style.color = "black";
+    });
+    h2Element.forEach(h2 => {
+        h2.style.color = "black";
+    });
+    labelElement.forEach(label => {
+        label.style.color = "black";
+    });
+    addRowBtn.style.color = "black";
+
+    toggleStatus.style.backgroundColor = "rgb(251, 209, 211)";
+    toggleStatus.style.color = "black";
+    toggleStatus.textContent = "Dark Mode: OFF";
+}
+
+function initToggle() {
+    if (JSON.parse(localStorage.getItem("darkMode"))) {
+        applyDarkTheme();
+        
+    } else {
+        applyLightTheme();
+    }
+}
+
+function toggleDark() {
+    let darkModeValue = JSON.parse(localStorage.getItem("darkMode"));
+    darkModeValue = !darkModeValue; // Toggle the value (if it was true, now it becomes false, and vice versa)
+    localStorage.setItem("darkMode", JSON.stringify(darkModeValue)); // Save the updated value in localStorage
+    
+    initToggle();
+}
+
 // Initialization
-initAccordion();
+// initAccordion();
 initRows();
+initToggle();
