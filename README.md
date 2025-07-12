@@ -2,7 +2,7 @@
 
 Calculate your grades for your classes!
 
-Visit here: https://julellisg.github.io/Grade-Calculator/
+Visit here: [https://kaloodinaz.github.io/grade-calculator/](https://kaloodinaz.github.io/grade-calculator/)
 
 ## :camera_flash: Features
 
